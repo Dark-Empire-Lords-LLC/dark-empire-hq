@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Empire Lords | Official $DEMP HQ</title>
+
+    <meta name="description" content="Official portal of Dark Empire Lords LLC. Powering crypto automation and digital infrastructure via the $DEMP utility token." />
+    <meta property="og:site_name" content="Dark Empire Lords">
+    <meta property="og:title" content="Dark Empire Lords | Official $DEMP HQ">
+    <meta property="og:description" content="Powering next-gen crypto automation and digital infrastructure. Verify the official $DEMP mint here.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dark-empire-lords-llc.github.io/dark-empire-hq/">
+    <meta property="og:image" content="https://your-domain.com/empire-banner.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourEmpireTwitter">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #0a0a0a;
+            --bg-surface: #141414;
+            --bg-nav: rgba(10, 10, 10, 0.95);
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --text-low: #707070;
+            --accent: #ff0033;
+            --accent-glow: rgba(255, 0, 51, 0.4);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --ease-out: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        /* Standard Reset & Smooth Scroll */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: 'Exo 2', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+        /* Typography Styles */
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .highlight {
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: var(--bg-nav);
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu Toggle (Hamburger) */
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .menu-icon span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--text-primary);
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            transform-origin: left;
+        }
+        
+        /* Hamburger Animation to 'X' */
+        .menu-icon.open span:nth-child(1) { transform: rotate(45deg); }
+        .menu-icon.open span:nth-child(2) { opacity: 0; }
+        .menu-icon.open span:nth-child(3) { transform: rotate(-45deg); }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%; /* Hidden off-screen */
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(15px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            z-index: 1000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mobile-menu.open {
+            right: 0; /* Slide in */
+        }
+        .mobile-menu a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Hero Layout */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at center, #1a0005 0%, var(--bg-deep) 70%);
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        .hero p {
+            max-width: 700px;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--accent);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            color: var(--accent);
+            transition: var(--transition);
+            cursor: pointer;
+            display: inline-block;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+        }
+        .btn:hover {
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 0 30px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* Verification Tool: Mint Address Component */
+        .ca-container {
+            margin-top: 2rem;
+            background: var(--bg-surface);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: pulse-glow 3s infinite ease-in-out;
+            max-width: 90%;
+        }
+        .ca-text {
+            font-family: monospace;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+        .copy-btn {
+            color: var(--accent);
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 5px rgba(255, 0, 51, 0.2); }
+            50% { box-shadow: 0 0 15px rgba(255, 0, 51, 0.5); }
+            100% { box-shadow: 0 0 5px rgba(255, 0, 51, 0.2); }
+        }
+
+        /* Section Layouts */
+        .section-padding {
+            padding: 8rem 10%;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Interactive Card CSS */
+        .card {
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-surface);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            border: 1px solid #222;
+            transition: all 0.5s var(--ease-out);
+            z-index: 1;
+        }
+        .card-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, var(--accent) 0%, transparent 100%);
+            opacity: 0;
+            transition: all 0.5s var(--ease-out);
+            z-index: -1;
+        }
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent);
+        }
+        .card:hover .card-overlay {
+            bottom: 0;
+            opacity: 0.15;
+        }
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .card:hover p {
+            color: var(--text-primary);
+        }
+
+        /* Tokenomics Table */
+        .token-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+        .token-table th, .token-table td {
+            text-align: left;
+            padding: 1.2rem;
+            border-bottom: 1px solid #222;
+        }
+        .token-table th {
+            color: var(--accent);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 10%;
+            border-top: 1px solid #222;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            background: #050505;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .menu-icon { display: flex; }
+            .section-padding { padding: 5rem 5%; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DARK EMPIRE</div>
+        
+        <div class="nav-links">
+            <a href="#mission">Mission</a>
+            <a href="#ecosystem">Ecosystem</a>
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#security">Security</a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#mission" onclick="toggleMenu()">Mission</a>
+            <a href="#ecosystem" onclick="toggleMenu()">Ecosystem</a>
+            <a href="#tokenomics" onclick="toggleMenu()">Tokenomics</a>
+            <a href="#security" onclick="toggleMenu()">Security</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>COMMAND THE <br><span class="highlight">DIGITAL FRONTIER</span></h1>
+        <p>Harnessing AI-driven automation and blockchain dominance to build next-gen digital infrastructure.</p>
+        
+        <div class="ca-container">
+            <span class="ca-text" id="mintAddress">8yGrrj6d9p4WNPRkunVo1NwkRSX3VTo43ZS39xu7jupx</span>
+            <span class="copy-btn" onclick="copyAddress()">Copy CA</span>
+        </div>
+
+        <div style="margin-top: 2.5rem;">
+            <a href="#tokenomics" class="btn btn-primary">Purchase $DEMP</a>
+            <a href="https://t.me/YOUR_TELEGRAM" class="btn" style="margin-left: 1rem;">Join Telegram</a>
+        </div>
+    </section>
+
+    <main>
+        <section id="mission" class="section-padding">
+            <h2>Imperial Mission</h2>
+            <p style="margin-top: 1.5rem; max-width: 800px; font-size: 1.1rem; color: var(--text-secondary);">
+                Dark Empire Lords LLC operates at the intersection of high-frequency automation and elite digital branding. 
+                Our directive is 10+ years of disciplined growth, utilizing the $DEMP token to fuel AI assistants and institutional-grade dApps.
+            </p>
+        </section>
+
+        <section id="ecosystem" class="section-padding" style="background: #070707;">
+            <h2>The Ecosystem</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-overlay"></div>
+                    <h3>AI Intelligence</h3>
+                    <p>Proprietary neural networks for automated signal analysis and market execution.</p>
+                </div>
+                <div class="card">
+                    <div class="card-overlay"></div>
+                    <h3>Empire Dashboards</h3>
+                    <p>Elite Web3 interfaces for real-time asset tracking and cross-chain operations.</p>
+                </div>
+                <div class="card">
+                    <div class="card-overlay"></div>
+                    <h3>Institutional Branding</h3>
+                    <p>High-conversion digital assets and custom blockchain programming (NAICS 541511).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tokenomics" class="section-padding">
+            <h2>$DEMP Tokenomics</h2>
+            <table class="token-table">
+                <tr><th>Ticker</th><td>$DEMP</td></tr>
+                <tr><th>Network</th><td>Solana (SPL)</td></tr>
+                <tr><th>Decimals</th><td>9</td></tr>
+                <tr><th>Access Tier</th><td>Governance & Premium Tool Gating</td></tr>
+                <tr><th>Liquidity</th><td>Burned / Locked for Security</td></tr>
+            </table>
+        </section>
+
+        <section id="security" class="section-padding" style="background: #070707;">
+            <h2>Security Protocol</h2>
+            <div style="color: var(--text-secondary); margin-top: 1rem;">
+                <p>• Advanced Smart Contract Simulations.</p>
+                <p>• Multi-sig Treasury Controls.</p>
+                <p>• Continuous On-chain Verification.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Dark Empire Lords LLC. All Rights Reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.6;">NAICS: 541511 – Custom Computer Programming Services</p>
+        
+        <div style="margin-top: 2rem; font-size: 0.7rem; color: var(--text-low); max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p>DISCLAIMER: $DEMP is a utility token for digital infrastructure and has no inherent financial value. Nothing on this site constitutes financial advice. Cryptocurrency involves high risk.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Copy to Clipboard Function
+        function copyAddress() {
+            const address = document.getElementById('mintAddress').innerText;
+            navigator.clipboard.writeText(address).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.innerText;
+                
+                btn.innerText = 'Copied!';
+                btn.style.color = '#00ff66';
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.color = 'var(--accent)';
+                }, 2000);
+            });
+        }
+
+        // Mobile Menu Toggle Function
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.querySelector('.menu-icon');
+            
+            menu.classList.toggle('open');
+            icon.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
